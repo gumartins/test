@@ -1,0 +1,11 @@
+id_venda,id_cliente,produto,quantidade,valor_unitario
+1,101,Notebook,1,3500
+2,102,Mouse,2,80
+3,103,Teclado,1,150
+4,101,Monitor,2,900
+5,104,Notebook,1,3500
+6,105,Mouse,3,80
+7,106,Teclado,2,150
+8,107,Monitor,1,900
+9,108,Mouse,5,80
+10,109,Notebook,2,3500
