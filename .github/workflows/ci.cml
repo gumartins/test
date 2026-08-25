@@ -1,0 +1,65 @@
+name: CI Pipeline de Dados
+
+
+# =====================================================
+# GATILHOS
+# =====================================================
+
+# Executa o workflow quando ocorrer:
+# - push
+# - Pull Request
+
+on:
+  push:
+  pull_request:
+
+
+# =====================================================
+# JOBS
+# =====================================================
+
+jobs:
+
+  testes:
+
+    # Máquina virtual criada pelo GitHub
+    runs-on: ubuntu-latest
+
+
+    steps:
+
+      # -------------------------------------------------
+      # 1. BAIXAR O PROJETO
+      # -------------------------------------------------
+
+      - name: Baixar projeto
+        uses: actions/checkout@v4
+
+
+      # -------------------------------------------------
+      # 2. CONFIGURAR O PYTHON
+      # -------------------------------------------------
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+
+        with:
+          python-version: "3.12"
+
+
+      # -------------------------------------------------
+      # 3. INSTALAR DEPENDÊNCIAS
+      # -------------------------------------------------
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+
+
+      # -------------------------------------------------
+      # 4. EXECUTAR TESTES
+      # -------------------------------------------------
+
+      - name: Executar testes
+        run: |
+          pytest -v
