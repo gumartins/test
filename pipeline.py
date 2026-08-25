@@ -46,7 +46,7 @@ def transformar_dados(df):
     # Calcula o faturamento da venda
     df["faturamento"] = (
         df["quantidade"]
-        * df["valor_unitario"]
+        + df["valor_unitario"]
     )
 
     return df
